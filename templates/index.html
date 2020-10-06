@@ -1,9 +1,191 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Pi Video Surveillance</title>
-  </head>
-  <body>
-    <h1>Pi Video Surveillance</h1>
-    <img src="{{ url_for('video_feed') }}">
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Demo</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="dist/css/custom.css">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <h4>Invision</h4>
+    </nav>
+    <!-- /.navbar -->
+
+
+      <!-- Content Wrapper. Contains page content -->
+  <div class="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- DIRECT CHAT PRIMARY -->
+                <div class="card card-prirary cardutline ">
+                  <div class="card-header">
+           
+    
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <video id="video" width="640" height="450" autoplay></video>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+
+                  </div>
+                  <!-- /.card-footer-->
+                </div>
+                <!--/.direct-chat -->
+              </div>
+              <!-- /.col -->
+            </div>
+
+          </div>
+          <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- DIRECT CHAT PRIMARY -->
+              <div class="card card-prirary cardutline direct-chat direct-chat-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Direct Chat</h3>
+  
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                    <div class="direct-chat-msg">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-left">User 1</span>
+                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="./img/avatar5.png" alt="Message User Image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        Hey
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+  
+                    <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-infos clearfix">
+                        <span class="direct-chat-name float-right">User 2</span>
+                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                      </div>
+                      <!-- /.direct-chat-infos -->
+                      <img class="direct-chat-img" src="./img/avatar.png" alt="Message User Image">
+                      <!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        Hello
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+
+                  </div>
+                  <!--/.direct-chat-messages-->
+
+
+                    <div class="col-md-12">
+                      <div id="results">
+                        <span id="final_span" class="final"></span>
+                        <span id="interim_span" class="interim"></span>
+                        <p>
+                      </div>
+                    </div>
+                  
+
+      
+                  <!-- /.direct-chat-pane -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <div class="row">
+                  <div class="col-md-6">
+                    <select id="select_language" class="form-control"></select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <select id="select_dialect" class="form-control"></select>
+                  </div>
+                </div>
+
+                  <form action="#" method="post">
+                    <div class="input-group">
+                      <span class="input-group-append">
+                        <button type="submit" class="btn btn-default" id="start_button"> <img id="start_img" height="25" width="30" src="img/mic.gif" alt="Start"></button>
+                      </span>
+
+                      
+                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                      
+                      <span class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-footer-->
+              </div>
+              <!--/.direct-chat -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.js"></script>
+
+<script src="app/webcam.js"></script>
+<script src="app/languages.js"></script>
+<script src="app/web-speech-api.js"></script>
+<script src="app/main.js"></script>
+
+</body>
 </html>
