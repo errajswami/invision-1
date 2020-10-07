@@ -47,7 +47,7 @@ def index():
 @app.route("/stopit")
 def stopit():
 	global vs, t
-	vs.release();
+	vs.release()
 	t.join()   
 	return render_template("index.html",item="item")
 
