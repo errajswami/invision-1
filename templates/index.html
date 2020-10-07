@@ -6,14 +6,20 @@
   <title>Demo</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" charset="utf-8">
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+            socket.on('message', function(data) {
+                 console.log(data);
+            });
+  </script>
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='dist/css/adminlte.min.css') }}">
 
-  <link rel="stylesheet" href="dist/css/custom.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='dist/css/custom.css') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -53,11 +59,12 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <video id="video" width="640" height="450" autoplay></video>
+                    <img src="{{ url_for(item) }}">
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-
+					<a href="{{ url_for('stopit') }}">Stop Video</a>
+					<a href="{{ url_for('startit') }}">Start Video</a>
                   </div>
                   <!-- /.card-footer-->
                 </div>
@@ -87,7 +94,7 @@
                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="./img/avatar5.png" alt="Message User Image">
+                      <img class="direct-chat-img" src="{{ url_for('static',filename='img/avatar5.png') }}" alt="Message User Image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         Hey
@@ -103,7 +110,7 @@
                         <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="./img/avatar.png" alt="Message User Image">
+                      <img class="direct-chat-img" src="{{ url_for('static',filename='img/avatar.png') }}" alt="Message User Image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         Hello
@@ -174,18 +181,18 @@
 
   
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{ url_for('static',filename='plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{ url_for('static',filename='plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="dist/js/adminlte.js"></script>
+<script src="{{ url_for('static',filename='plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static',filename='dist/js/adminlte.js') }}"></script>
 
-<script src="app/webcam.js"></script>
-<script src="app/languages.js"></script>
-<script src="app/web-speech-api.js"></script>
-<script src="app/main.js"></script>
+<script src="{{ url_for('static',filename='app/webcam.js') }}"></script>
+<script src="{{ url_for('static',filename='app/languages.js') }}"></script>
+<script src="{{ url_for('static',filename='app/web-speech-api.js') }}"></script>
+<script src="{{ url_for('static',filename='app/main.js') }}"></script>
 
 </body>
 </html>
