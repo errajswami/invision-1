@@ -112,6 +112,9 @@ var messages = {
         final_transcript = capitalize(final_transcript);
         final_span.innerHTML = linebreak(final_transcript);
         interim_span.innerHTML = linebreak(interim_transcript);
+
+        $("#inputVoice").val(linebreak(interim_transcript));
+        $("#inputVoice").val(linebreak(final_transcript));
       };
     }
   });

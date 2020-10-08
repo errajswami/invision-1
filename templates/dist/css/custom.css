@@ -14,5 +14,6 @@
 
 .card.card-prirary.cardutline.direct-chat.direct-chat-primary {
     /* height: auto; */
-    height: calc(100vh - 100px);
+    margin-top: 60px;
+    height: calc(100vh - 140px);
 }
